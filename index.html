@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop Game</title>
+
+<style>
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #0f172a;
+    color: white;
+}
+
+header {
+    background: #020617;
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    background: #22c55e;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #16a34a;
+}
+
+.cart {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #22c55e;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>🎮 SHOP BÁN GAME</header>
+
+<div class="cart" onclick="showCart()">
+🛒 Giỏ hàng (<span id="count">0</span>)
+</div>
+
+<div class="container">
+
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>GTA V</h3>
+<p>200.000đ</p>
+<button onclick="addToCart('GTA V')">Mua</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>Free Fire</h3>
+<p>50.000đ</p>
+<button onclick="addToCart('Free Fire')">Mua</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>Liên Minh</h3>
+<p>100.000đ</p>
+<button onclick="addToCart('Liên Minh')">Mua</button>
+</div>
+
+</div>
+
+<script>
+let cart = [];
+
+function addToCart(game) {
+    cart.push(game);
+    document.getElementById("count").innerText = cart.length;
+    alert("Đã thêm " + game);
+}
+
+function showCart() {
+    alert("Giỏ hàng:\n" + cart.join("\n"));
+}
+</script>
+
+</body>
+</html>
